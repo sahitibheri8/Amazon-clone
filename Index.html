@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Clone</title>
-    <!-- Lucide Icons CDN -->
+    
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Custom Google Font -->
+   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Body Styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #E3E6E6;
@@ -25,13 +24,11 @@
             text-decoration: none;
             color: inherit;
         }
-        
-        /* Icon base style */
+      
         .icon {
-            display: block; /* Ensures icons render correctly */
+            display: block;
         }
 
-        /* Header Styles */
         .header {
             background-color: #131921;
             color: white;
@@ -64,7 +61,7 @@
         }
 
         .deliver-to {
-            display: none; /* hidden by default */
+            display: none; 
         }
 
         .deliver-to .icon {
@@ -84,7 +81,7 @@
             display: block;
         }
 
-        /* Search Bar */
+       
         .search-container {
             flex-grow: 1;
             display: flex;
@@ -138,7 +135,6 @@
             background-color: #F3A847;
         }
 
-        /* Header Right Side */
         .header-lang { display: none; }
         .header-orders { display: none; } 
 
@@ -190,7 +186,7 @@
             margin-left: 0.25rem;
         }
 
-        /* Sub Navigation */
+      
         .sub-nav {
             background-color: #232F3E;
             color: white;
@@ -225,7 +221,7 @@
             margin-right: 0.25rem;
         }
 
-        /* Main Content */
+      
         .main-content {
             max-width: 80rem;
             margin: 0 auto;
@@ -240,7 +236,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Product Grid */
+     
         .product-grid {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
@@ -277,7 +273,7 @@
             text-decoration: underline;
         }
 
-        /* Footer Styles */
+     
         .footer-back-to-top {
             background-color: #232F3E;
             color: white;
@@ -330,7 +326,7 @@
             text-decoration: underline;
         }
 
-        /* Responsive Media Queries */
+       
         @media (min-width: 640px) {
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -374,18 +370,17 @@
 </head>
 <body>
 
-    <!-- Header Section -->
+   
     <header class="header">
-        <!-- Main Header -->
+      
         <div class="header-main">
-            <!-- Logo -->
+          
             <div class="header-item">
                 <a href="#">
                     <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" class="amazon-logo">
                 </a>
             </div>
 
-            <!-- Deliver to -->
             <div class="header-item deliver-to">
                 <i data-lucide="map-pin" class="icon"></i>
                 <div>
@@ -394,7 +389,6 @@
                 </div>
             </div>
 
-            <!-- Search Bar -->
             <div class="search-container">
                 <select class="search-select">
                     <option>All</option>
@@ -410,13 +404,12 @@
                 </button>
             </div>
 
-            <!-- Language -->
+           
             <div class="header-item header-lang">
                 <span style="font-weight: 700; font-size: 0.875rem;">EN</span>
                 <i data-lucide="chevron-down" class="icon"></i>
             </div>
 
-            <!-- Accounts & Lists -->
             <div class="header-item header-account">
                 <a href="#">
                     <span>Hello, sign in</span>
@@ -424,7 +417,7 @@
                 </a>
             </div>
 
-            <!-- Returns & Orders -->
+           
             <div class="header-item header-orders">
                 <a href="#">
                     <span>Returns</span>
@@ -432,7 +425,7 @@
                 </a>
             </div>
 
-            <!-- Cart -->
+       
             <div class="header-item">
                 <a href="#" class="header-cart-link">
                     <div class="cart-icon-container">
@@ -444,7 +437,7 @@
             </div>
         </div>
 
-        <!-- Sub Navigation -->
+       
         <nav class="sub-nav">
             <a href="#" class="sub-nav-all">
                 <i data-lucide="menu" class="icon"></i>
@@ -458,64 +451,61 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
+       
         <div class="hero-section" style="background-image: url('https://placehold.co/1500x400/007185/FFFFFF?text=Welcome+to+Amazon!')">
         </div>
 
-        <!-- Product Grid -->
         <div class="product-grid">
-            <!-- Product Card 1 -->
+        
             <div class="product-card">
                 <h2>Deals on PCs</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Laptop" alt="Gaming Accessories"></a>
                 <a href="#" class="shop-link">Shop now</a>
             </div>
 
-            <!-- Product Card 2 -->
+        
             <div class="product-card">
                 <h2>Toys under $30</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Toys" alt="Toys"></a>
                 <a href="#" class="shop-link">Shop now</a>
             </div>
 
-            <!-- Product Card 3 -->
+           
             <div class="product-card">
                 <h2>Electronics</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Electronics" alt="Electronics"></a>
                 <a href="#" class="shop-link">See more</a>
             </div>
             
-            <!-- Product Card 4 -->
+       =
             <div class="product-card">
                 <h2>Home & Kitchen</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Kitchen" alt="Home & Kitchen"></a>
                 <a href="#" class="shop-link">Shop now</a>
             </div>
 
-            <!-- Product Card 5 -->
+      
             <div class="product-card">
                 <h2>Health & Personal Care</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Personal+Care" alt="Health & Personal Care"></a>
                 <a href="#" class="shop-link">Explore now</a>
             </div>
             
-            <!-- Product Card 6 -->
+           
             <div class="product-card">
                 <h2>Beauty picks</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Beauty" alt="Beauty picks"></a>
                 <a href="#" class="shop-link">See more</a>
             </div>
 
-            <!-- Product Card 7 -->
             <div class="product-card">
                 <h2>New arrivals in Toys</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=New+Toys" alt="New arrivals"></a>
                 <a href="#" class="shop-link">Discover more</a>
             </div>
             
-            <!-- Product Card 8 -->
+        
             <div class="product-card">
                 <h2>Discover fashion trends</h2>
                 <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Fashion" alt="Fashion"></a>
@@ -524,14 +514,13 @@
         </div>
     </main>
 
-    <!-- Footer Section -->
     <footer>
         <div class="footer-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
             Back to top
         </div>
         <div class="footer-links">
             <div class="footer-links-container">
-                <!-- Column 1 -->
+           
                 <div class="footer-column">
                     <h3>Get to Know Us</h3>
                     <ul>
@@ -543,7 +532,7 @@
                         <li><a href="#">Amazon Science</a></li>
                     </ul>
                 </div>
-                <!-- Column 2 -->
+            
                 <div class="footer-column">
                     <h3>Make Money with Us</h3>
                     <ul>
@@ -556,7 +545,7 @@
                         <li><a href="#">Host an Amazon Hub</a></li>
                     </ul>
                 </div>
-                <!-- Column 3 -->
+                
                 <div class="footer-column">
                     <h3>Amazon Payment Products</h3>
                     <ul>
@@ -566,7 +555,7 @@
                         <li><a href="#">Amazon Currency Converter</a></li>
                     </ul>
                 </div>
-                <!-- Column 4 -->
+              
                 <div class="footer-column">
                     <h3>Let Us Help You</h3>
                     <ul>
