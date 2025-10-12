@@ -3,578 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Clone</title>
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
-   
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #E3E6E6;
-            margin: 0;
-            padding: 0;
-            color: #0F1111;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-      
-        .icon {
-            display: block;
-        }
-
-        .header {
-            background-color: #131921;
-            color: white;
-        }
-
-        .header-main {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem;
-        }
-
-        .header-item {
-            padding: 0.5rem;
-            border: 1px solid transparent;
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .header-item:hover {
-            border: 1px solid white;
-        }
-
-        .amazon-logo {
-            height: 2rem;
-            width: auto;
-            vertical-align: middle;
-        }
-
-        .deliver-to {
-            display: none; 
-        }
-
-        .deliver-to .icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            margin-right: 0.25rem;
-        }
-
-        .deliver-to div span:first-child {
-            font-size: 0.75rem;
-            color: #d1d5db;
-        }
-
-        .deliver-to div span:last-child {
-            font-size: 0.875rem;
-            font-weight: 700;
-            display: block;
-        }
-
-       
-        .search-container {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            margin: 0 0.5rem;
-        }
-
-        .search-select {
-            background-color: #e5e7eb;
-            color: #374151;
-            font-size: 0.75rem;
-            padding: 0.75rem;
-            border: none;
-            border-right: 1px solid #d1d5db;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-            cursor: pointer;
-        }
-
-        .search-select:hover {
-            background-color: #d1d5db;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.625rem;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .search-select:focus, .search-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px #F9A825, 0 0 0 5px #f0c14b;
-        }
-
-        .search-button {
-            background-color: #FEBD69;
-            padding: 0.75rem;
-            border: none;
-            cursor: pointer;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-        }
-        .search-button .icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            color: #1f2937;
-        }
-
-        .search-button:hover {
-            background-color: #F3A847;
-        }
-
-        .header-lang { display: none; }
-        .header-orders { display: none; } 
-
-        .header-account span:first-child, .header-orders span:first-child {
-            font-size: 0.75rem;
-        }
-
-        .header-account span:last-child, .header-orders span:last-child {
-            font-size: 0.875rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-        .header-orders span:last-child { display: block; }
-
-        .header-lang .icon, .header-account .icon {
-            width: 1rem;
-            height: 1rem;
-            margin-left: 0.25rem;
-        }
-        
-        .header-cart-link {
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .cart-icon-container {
-            position: relative;
-        }
-
-        .cart-icon-container .icon {
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -0.25rem;
-            left: 0.875rem;
-            color: #FEBD69;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .cart-text {
-            display: none;
-            font-size: 0.875rem;
-            font-weight: 700;
-            margin-left: 0.25rem;
-        }
-
-      
-        .sub-nav {
-            background-color: #232F3E;
-            color: white;
-            font-size: 0.875rem;
-            display: flex;
-            align-items: center;
-            padding: 0.5rem;
-            overflow-x: auto;
-        }
-
-        .sub-nav a {
-            padding: 0.25rem;
-            margin-right: 1rem;
-            white-space: nowrap;
-            border: 1px solid transparent;
-            border-radius: 2px;
-        }
-
-        .sub-nav a:hover {
-            border: 1px solid white;
-        }
-
-        .sub-nav-all {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-        }
-
-        .sub-nav-all .icon {
-            width: 1.5rem;
-            height: 1.5rem;
-            margin-right: 0.25rem;
-        }
-
-      
-        .main-content {
-            max-width: 80rem;
-            margin: 0 auto;
-            padding: 1.5rem 1rem;
-        }
-
-        .hero-section {
-            height: 16rem;
-            background-size: cover;
-            background-position: center;
-            border-radius: 0.375rem;
-            margin-bottom: 1.5rem;
-        }
-
-     
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 1.5rem;
-        }
-
-        .product-card {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 0.375rem;
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        }
-
-        .product-card h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 1rem;
-            border-radius: 0.375rem;
-        }
-
-        .product-card a.shop-link {
-            font-size: 0.875rem;
-            color: #007185;
-        }
-
-        .product-card a.shop-link:hover {
-            color: #C7511F;
-            text-decoration: underline;
-        }
-
-     
-        .footer-back-to-top {
-            background-color: #232F3E;
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 0.875rem;
-            cursor: pointer;
-        }
-
-        .footer-back-to-top:hover {
-            background-color: #37475A;
-        }
-
-        .footer-links {
-            background-color: #232F3E;
-            color: white;
-            border-top: 1px solid #4b5563;
-        }
-
-        .footer-links-container {
-            max-width: 80rem;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            padding: 2.5rem 1.5rem;
-        }
-
-        .footer-column h3 {
-            font-weight: 700;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-column ul li {
-            margin-top: 0.5rem;
-        }
-
-        .footer-column a {
-            font-size: 0.875rem;
-            color: #d1d5db;
-        }
-
-        .footer-column a:hover {
-            text-decoration: underline;
-        }
-
-       
-        @media (min-width: 640px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .header-main {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            .deliver-to, .header-orders {
-                display: flex;
-            }
-            .search-container {
-                margin: 0 1rem;
-            }
-            .hero-section {
-                height: 20rem;
-            }
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .footer-links-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .header-lang {
-                display: flex;
-            }
-            .cart-text {
-                display: inline;
-            }
-            .product-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-   
-    <header class="header">
-      
-        <div class="header-main">
-          
-            <div class="header-item">
-                <a href="#">
-                    <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" class="amazon-logo">
-                </a>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo"></div>
             </div>
 
-            <div class="header-item deliver-to">
-                <i data-lucide="map-pin" class="icon"></i>
-                <div>
-                    <span>Deliver to</span>
-                    <span>Chennai</span>
+            <div class="nav-address border">
+                <p class="add-first">Deliver to</p>
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-second">India</p>
                 </div>
             </div>
 
-            <div class="search-container">
-                <select class="search-select">
-                    <option>All</option>
-                    <option>Arts & Crafts</option>
-                    <option>Automotive</option>
-                    <option>Books</option>
-                    <option>Computers</option>
-                    <option>Electronics</option>
+            <div class="nav-search">
+                <select>
+                    <option class="search-select">All</option>
                 </select>
-                <input type="text" placeholder="Search Amazon" class="search-input">
-                <button class="search-button">
-                    <i data-lucide="search" class="icon"></i>
-                </button>
+                <input placeholder="Search Amazon" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
             </div>
 
-           
-            <div class="header-item header-lang">
-                <span style="font-weight: 700; font-size: 0.875rem;">EN</span>
-                <i data-lucide="chevron-down" class="icon"></i>
+            <div class="nav-signin border">
+                <p><span>Hello, sign in</span></p>
+                <p class="nav-second">Account & Lists</p>
             </div>
 
-            <div class="header-item header-account">
-                <a href="#">
-                    <span>Hello, sign in</span>
-                    <span>Account & Lists <i data-lucide="chevron-down" class="icon"></i></span>
-                </a>
+            <div class="nav-return border">
+                <p><span>Returns</span></p>
+                <p class="nav-second">& Orders</p>
             </div>
 
-           
-            <div class="header-item header-orders">
-                <a href="#">
-                    <span>Returns</span>
-                    <span>& Orders</span>
-                </a>
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
             </div>
 
-       
-            <div class="header-item">
-                <a href="#" class="header-cart-link">
-                    <div class="cart-icon-container">
-                        <i data-lucide="shopping-cart" class="icon"></i>
-                        <span class="cart-count">0</span>
-                    </div>
-                    <span class="cart-text">Cart</span>
-                </a>
+        </div>
+
+
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+
+            <div class="panel-ops">
+                <p>Today's Deal</p>
+                <p>Customer Service</p>
+                <p>Register</p>
+                <p>Gift Cards</p>
+                <p>Sell</p>
+            </div>
+
+            <div class="panel-deals">
+                Shop deals in Electronics
             </div>
         </div>
 
-       
-        <nav class="sub-nav">
-            <a href="#" class="sub-nav-all">
-                <i data-lucide="menu" class="icon"></i>
-                All
-            </a>
-            <a href="#">Today's Deals</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Registry</a>
-            <a href="#">Gift Cards</a>
-            <a href="#">Sell</a>
-        </nav>
+
     </header>
 
-    <main class="main-content">
-       
-        <div class="hero-section" style="background-image: url('https://placehold.co/1500x400/007185/FFFFFF?text=Welcome+to+Amazon!')">
+
+    <div class="hero-section">
+        <div class="hero-msg">
+            <p>you are on amazon.com. You can also shop on Amazon india for millions of products with fast local delivery.<a> Click here to go to amazon.in</a> </p>
         </div>
+    </div>
 
-        <div class="product-grid">
-        
-            <div class="product-card">
-                <h2>Deals on PCs</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Laptop" alt="Gaming Accessories"></a>
-                <a href="#" class="shop-link">Shop now</a>
+    <div class="shop-section">
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Clothing</h2>
+                <div class="box-img" style="background-image: url('box1_image\ \(1\).jpg');"></div>
+                <p>see more</p>
             </div>
-
-        
-            <div class="product-card">
-                <h2>Toys under $30</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Toys" alt="Toys"></a>
-                <a href="#" class="shop-link">Shop now</a>
+        </div>
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Health care</h2>
+                <div class="box-img" style="background-image: url('box2_image.jpg');"></div>
+                <p>see more</p>
             </div>
-
-           
-            <div class="product-card">
-                <h2>Electronics</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Electronics" alt="Electronics"></a>
-                <a href="#" class="shop-link">See more</a>
+        </div>
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>Furniture</h2>
+                <div class="box-img" style="background-image: url('box3_image.jpg');"></div>
+                <p>see more</p>
             </div>
-            
-       =
-            <div class="product-card">
-                <h2>Home & Kitchen</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Kitchen" alt="Home & Kitchen"></a>
-                <a href="#" class="shop-link">Shop now</a>
+        </div>
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Electrnics</h2>
+                <div class="box-img" style="background-image: url('box4_image.jpg');"></div>
+                <p>see more</p>
             </div>
-
-      
-            <div class="product-card">
-                <h2>Health & Personal Care</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Personal+Care" alt="Health & Personal Care"></a>
-                <a href="#" class="shop-link">Explore now</a>
+        </div>
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Beauty Pics</h2>
+                <div class="box-img" style="background-image: url('box5_image.jpg');"></div>
+                <p>see more</p>
             </div>
-            
-           
-            <div class="product-card">
-                <h2>Beauty picks</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Beauty" alt="Beauty picks"></a>
-                <a href="#" class="shop-link">See more</a>
+        </div>
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Pet Care</h2>
+                <div class="box-img" style="background-image: url('box6_image.jpg');"></div>
+                <p>see more</p>
             </div>
-
-            <div class="product-card">
-                <h2>New arrivals in Toys</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=New+Toys" alt="New arrivals"></a>
-                <a href="#" class="shop-link">Discover more</a>
+        </div>
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>New arrival in Toys</h2>
+                <div class="box-img" style="background-image: url('box7_image.jpg');"></div>
+                <p>see more</p>
             </div>
-            
-        
-            <div class="product-card">
+        </div>
+        <div class="box4 box">
+            <div class="box-content">
                 <h2>Discover fashion trends</h2>
-                <a href="#"><img src="https://placehold.co/400x400/e6e6e6/000?text=Fashion" alt="Fashion"></a>
-                <a href="#" class="shop-link">Shop now</a>
+                <div class="box-img" style="background-image: url('box8_image.jpg');"></div>
+                <p>see more</p>
             </div>
         </div>
-    </main>
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Clothing</h2>
+                <div class="box-img" style="background-image: url('box1_image\ \(1\).jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Health care</h2>
+                <div class="box-img" style="background-image: url('box2_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>Furniture</h2>
+                <div class="box-img" style="background-image: url('box3_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Electrnics</h2>
+                <div class="box-img" style="background-image: url('box4_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Beauty Pics</h2>
+                <div class="box-img" style="background-image: url('box5_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Pet Care</h2>
+                <div class="box-img" style="background-image: url('box6_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>New arrival in Toys</h2>
+                <div class="box-img" style="background-image: url('box7_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Discover fashion trends</h2>
+                <div class="box-img" style="background-image: url('box8_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Clothing</h2>
+                <div class="box-img" style="background-image: url('box1_image\ \(1\).jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Health care</h2>
+                <div class="box-img" style="background-image: url('box2_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>Furniture</h2>
+                <div class="box-img" style="background-image: url('box3_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Electrnics</h2>
+                <div class="box-img" style="background-image: url('box4_image.jpg');"></div>
+                <p>see more</p>
+            </div>
+        </div>
+        
+        
+    </div>
+
+
 
     <footer>
-        <div class="footer-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-            Back to top
+        <div class="foot-panel1">
+            Back to Top
         </div>
-        <div class="footer-links">
-            <div class="footer-links-container">
-           
-                <div class="footer-column">
-                    <h3>Get to Know Us</h3>
-                    <ul>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">About Amazon</a></li>
-                        <li><a href="#">Investor Relations</a></li>
-                        <li><a href="#">Amazon Devices</a></li>
-                        <li><a href="#">Amazon Science</a></li>
-                    </ul>
-                </div>
-            
-                <div class="footer-column">
-                    <h3>Make Money with Us</h3>
-                    <ul>
-                        <li><a href="#">Sell products on Amazon</a></li>
-                        <li><a href="#">Sell on Amazon Business</a></li>
-                        <li><a href="#">Sell apps on Amazon</a></li>
-                        <li><a href="#">Become an Affiliate</a></li>
-                        <li><a href="#">Advertise Your Products</a></li>
-                        <li><a href="#">Self-Publish with Us</a></li>
-                        <li><a href="#">Host an Amazon Hub</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Amazon Payment Products</h3>
-                    <ul>
-                        <li><a href="#">Amazon Business Card</a></li>
-                        <li><a href="#">Shop with Points</a></li>
-                        <li><a href="#">Reload Your Balance</a></li>
-                        <li><a href="#">Amazon Currency Converter</a></li>
-                    </ul>
-                </div>
-              
-                <div class="footer-column">
-                    <h3>Let Us Help You</h3>
-                    <ul>
-                        <li><a href="#">Amazon and COVID-19</a></li>
-                        <li><a href="#">Your Account</a></li>
-                        <li><a href="#">Your Orders</a></li>
-                        <li><a href="#">Shipping Rates & Policies</a></li>
-                        <li><a href="#">Returns & Replacements</a></li>
-                        <li><a href="#">Manage Your Content and Devices</a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </div>
-            </div>
+
+        <div class="foot-panel2">
+            <ul>
+                <p>Get to know Us</p>
+                <a>Careers</a>
+                <a>Blog</a>
+                <a>About Amazon</a>
+                <a>Investor relations</a>
+                <a>Amazon Devices</a>
+                <a>Amazon Science</a>
+            </ul>
+
+            <ul>
+                <p>Sell products on amazon</p>
+                <a>Sell on amazon Business</a>
+                <a>Advertise your products</a>
+                <a>Self-publish with us</a>
+                <a>Investor relations</a>
+                <a>Host an amazon hub</a>
+                <a>Host an amazon Hub</a>
+            </ul>
+
+            <ul>
+                <p>Get to know Us</p>
+                <a>Careers</a>
+                <a>Blog</a>
+                <a>About Amazon</a>
+                <a>Investor relations</a>
+                <a>Amazon Devices</a>
+                <a>Amazon Science</a>
+            </ul>
+
+            <ul>
+                <p>Get to know Us</p>
+                <a>Careers</a>
+                <a>Blog</a>
+                <a>About Amazon</a>
+                <a>Investor relations</a>
+                <a>Amazon Devices</a>
+                <a>Amazon Science</a>
+            </ul>
         </div>
+
+
+        <div class="foot-panel3">
+            <div class="logo"></div>
+        </div>
+
+       
     </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
-
 </body>
 </html>
